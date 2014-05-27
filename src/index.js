@@ -17,7 +17,7 @@ define(function (require, exports, module) {
 	var get = require('./__jquery-value/get'),
 		set  = require('./__jquery-value/set');
 
-	module.exports = function jqValue($el, value) {
+	var jqValue = module.exports = function jqValue($el, value) {
 
 		if (arguments.length === 1) {
 			return get($el);

@@ -5,8 +5,7 @@
 define(function (require, exports, module) {
 	'use strict';
 
-	var _ = require('lodash'),
-		$ = require('jquery');
+	var $ = require('jquery');
 
 	/**
 	 * Hash of functions that will return a value
@@ -27,10 +26,20 @@ define(function (require, exports, module) {
 		},
 
 		'INPUT': function readInput($el) {
-			if ($el.prop('type') === 'checkbox') {
-				return _.map($el.filter(':checked'), function (el) {
-					return $(el).val();
-				});
+
+			var type = $el.prop('type');
+
+			if (type === 'checkbox') {
+
+				return $el.filter(':checked').map(function () {
+
+					return $(this).val();
+
+				}).get();
+
+			} else if (type === 'radio') {
+
+				return $el.filter(':checked').val();
 
 			} else {
 				return $el.val();
@@ -45,6 +54,8 @@ define(function (require, exports, module) {
 	 * @param selector {String}
 	 */
 	module.exports = function jqValueGet($el) {
+
+		var tagName = $el.prop('tagName');
 
 		// [1] retrieve get function
 		var tagName = $el.prop('tagName'),

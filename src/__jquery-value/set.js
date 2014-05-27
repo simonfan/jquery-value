@@ -6,8 +6,7 @@
 define(function (require, exports, module) {
 	'use strict';
 
-	var $ = require('jquery'),
-		_ = require('lodash');
+	var $ = require('jquery');
 
 	/**
 	 * Holds the html tag jqValueSetters.
@@ -28,7 +27,7 @@ define(function (require, exports, module) {
 			var type = $el.prop('type');
 
 			if (type === 'checkbox' || type === 'radio') {
-				value = _.isArray(value) ? value : [value];
+				value = $.isArray(value) ? value : [value];
 			}
 
 			return $el.val(value);
@@ -59,7 +58,7 @@ define(function (require, exports, module) {
 		var byTag = {};
 
 		// [2] loop through the $el
-		_.each($el, function (el) {
+		$el.each(function (index, el) {
 
 			var $el = $(el);
 
@@ -67,7 +66,7 @@ define(function (require, exports, module) {
 			var tagName = $el.prop('tagName');
 
 
-			var set = jqValueSetters[tag] || jqValueSetters['default'];
+			var set = jqValueSetters[tagName] || jqValueSetters['default'];
 			set($el, value);
 		});
 

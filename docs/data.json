@@ -1,0 +1,180 @@
+{
+    "project": {
+        "name": "jquery-value",
+        "version": "0.0.0"
+    },
+    "files": {
+        "src/__jquery-value/get.js": {
+            "name": "src/__jquery-value/get.js",
+            "modules": {
+                "dom-to-model-read": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/__jquery-value/set.js": {
+            "name": "src/__jquery-value/set.js",
+            "modules": {
+                "element": 1
+            },
+            "classes": {
+                "jqValueSetters": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/index.js": {
+            "name": "src/index.js",
+            "modules": {
+                "jquery-value": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "bb-model-view": {
+            "name": "bb-model-view",
+            "submodules": {
+                "dom-to-model-read": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "dom-to-model-read": {
+            "name": "dom-to-model-read",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "bb-model-view",
+            "namespace": "",
+            "file": "src/__jquery-value/get.js",
+            "line": 1
+        },
+        "jquery.filler": {
+            "name": "jquery.filler",
+            "submodules": {
+                "element": 1
+            },
+            "classes": {
+                "jqValueSetters": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "file": "src/__jquery-value/set.js",
+            "line": 11
+        },
+        "element": {
+            "name": "element",
+            "submodules": {},
+            "classes": {
+                "jqValueSetters": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "jquery.filler",
+            "namespace": "",
+            "file": "src/__jquery-value/set.js",
+            "line": 11,
+            "description": "Holds the html tag jqValueSetters."
+        },
+        "jquery-value": {
+            "name": "jquery-value",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/index.js",
+            "line": 5,
+            "description": "AMD module."
+        }
+    },
+    "classes": {
+        "jqValueSetters": {
+            "name": "jqValueSetters",
+            "shortname": "jqValueSetters",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "jquery.filler",
+            "submodule": "element",
+            "namespace": "",
+            "file": "src/__jquery-value/set.js",
+            "line": 11,
+            "description": "Holds the html tag jqValueSetters.",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/__jquery-value/get.js",
+            "line": 10,
+            "description": "Hash of functions that will return a value\ngiven an jquery $el.\nKeyed by tagName",
+            "itemtype": "property",
+            "name": "jqValueGetters",
+            "access": "private",
+            "tagname": "",
+            "type": "Object",
+            "class": "jqValueSetters",
+            "module": "bb-model-view",
+            "submodule": "dom-to-model-read"
+        },
+        {
+            "file": "src/__jquery-value/get.js",
+            "line": 50,
+            "description": "Takes a selector string and returns the value of it.",
+            "itemtype": "method",
+            "name": "jqValueGet",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "jqValueSetters",
+            "module": "bb-model-view",
+            "submodule": "dom-to-model-read"
+        },
+        {
+            "file": "src/__jquery-value/set.js",
+            "line": 22,
+            "description": "intercept only filling for checkboxes and radios\nas the default jquery .val() method sets the checkboxes and radio input\nvalues instead of checking them (if the value is not passed in as an array)",
+            "class": "jqValueSetters",
+            "module": "jquery.filler",
+            "submodule": "element"
+        },
+        {
+            "file": "src/__jquery-value/set.js",
+            "line": 49,
+            "description": "Generates a filler function.",
+            "itemtype": "method",
+            "name": "jqValueSet",
+            "params": [
+                {
+                    "name": "$el",
+                    "description": "The element on which perform task",
+                    "type": "JQuery"
+                }
+            ],
+            "class": "jqValueSetters",
+            "module": "jquery.filler",
+            "submodule": "element"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nintercept only filling for checkboxes and radios\nas the default jquery .val() method sets the checkboxes and radio input\nvalues instead of checking them (if the value is not passed in as an array)",
+            "line": " src/__jquery-value/set.js:22"
+        }
+    ]
+}
