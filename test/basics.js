@@ -1,4 +1,4 @@
-(function(name, factory) {
+(function (name, factory) {
 
 	var mod = typeof define !== 'function' ?
 		// node

@@ -55,8 +55,6 @@ define(function (require, exports, module) {
 	 */
 	module.exports = function jqValueGet($el) {
 
-		var tagName = $el.prop('tagName');
-
 		// [1] retrieve get function
 		var tagName = $el.prop('tagName'),
 			get = jqValueGetters[tagName] || jqValueGetters['default'];

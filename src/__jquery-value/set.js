@@ -54,9 +54,6 @@ define(function (require, exports, module) {
 	 */
 	module.exports = function jqValueSet($el, value) {
 
-		// [1] create a var to hold $elements grouped by their tagNames
-		var byTag = {};
-
 		// [2] loop through the $el
 		$el.each(function (index, el) {
 

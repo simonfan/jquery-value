@@ -17,7 +17,8 @@ define(function (require, exports, module) {
 	var get = require('./__jquery-value/get'),
 		set  = require('./__jquery-value/set');
 
-	var jqValue = module.exports = function jqValue($el, value) {
+
+	var _jqValue = module.exports = function _jqValue($el, value) {
 
 		if (arguments.length === 1) {
 			return get($el);
@@ -26,11 +27,11 @@ define(function (require, exports, module) {
 		}
 	};
 
-	$.prototype.value = function jqValueGetSet(value) {
+	$.prototype.value = function jqValue(value) {
 		if (arguments.length === 0) {
-			return jqValue(this);
+			return _jqValue(this);
 		} else {
-			return jqValue(this, value);
+			return _jqValue(this, value);
 		}
 	};
 });

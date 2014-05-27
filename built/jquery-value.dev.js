@@ -55,8 +55,6 @@ define('__jquery-value/get',['require','exports','module','jquery'],function (re
 	 */
 	module.exports = function jqValueGet($el) {
 
-		var tagName = $el.prop('tagName');
-
 		// [1] retrieve get function
 		var tagName = $el.prop('tagName'),
 			get = jqValueGetters[tagName] || jqValueGetters['default'];
@@ -122,9 +120,6 @@ define('__jquery-value/set',['require','exports','module','jquery'],function (re
 	 */
 	module.exports = function jqValueSet($el, value) {
 
-		// [1] create a var to hold $elements grouped by their tagNames
-		var byTag = {};
-
 		// [2] loop through the $el
 		$el.each(function (index, el) {
 
@@ -161,7 +156,8 @@ define('jquery-value',['require','exports','module','jquery','./__jquery-value/g
 	var get = require('./__jquery-value/get'),
 		set  = require('./__jquery-value/set');
 
-	var jqValue = module.exports = function jqValue($el, value) {
+
+	var _jqValue = module.exports = function _jqValue($el, value) {
 
 		if (arguments.length === 1) {
 			return get($el);
@@ -170,11 +166,11 @@ define('jquery-value',['require','exports','module','jquery','./__jquery-value/g
 		}
 	};
 
-	$.prototype.value = function jqValueGetSet(value) {
+	$.prototype.value = function jqValue(value) {
 		if (arguments.length === 0) {
-			return jqValue(this);
+			return _jqValue(this);
 		} else {
-			return jqValue(this, value);
+			return _jqValue(this, value);
 		}
 	};
 });
